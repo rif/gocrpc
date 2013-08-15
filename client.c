@@ -34,10 +34,9 @@ int initSocket(const char *addr, const int port){
 
 void rpcCall(const int sockfd, const char *method, const char *params, char *buf) {
   int n;
-  char msg[MAXRCVLEN];
-  sprintf(msg, "{\"id\": %d, \"method\": \"%s\", \"params\": [%s]}", id++, method, params);
+  sprintf(buf, "{\"id\": %d, \"method\": \"%s\", \"params\": [%s]}", id++, method, params);
   // writing the call
-  n = write(sockfd, msg, strlen(msg));
+  n = write(sockfd, buf, strlen(buf));
   
   if (n < 0) 
     error("ERROR writing to socket");
