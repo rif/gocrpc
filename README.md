@@ -9,7 +9,9 @@ Running
 
 In one terminal:
 
+```shell
 go run server.go
+```
 
 In other terminal:
 ```shell
